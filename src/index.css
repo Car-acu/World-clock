@@ -51,12 +51,12 @@ select:focus {
 }
 
 .fixed-city {
-  margin: 25px 0;
+  margin: 35px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px dashed rgb(214, 210, 210);
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 .fixed-city:last-of-type {
   border: none;
@@ -88,5 +88,13 @@ a {
 }
 
 a:hover {
+  color: #bc0c8a;
+}
+
+#backButton {
+  color: #929192;
+  opacity: 0.5;
+}
+#backButton:hover {
   color: #bc0c8a;
 }

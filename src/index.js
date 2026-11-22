@@ -50,7 +50,7 @@ function updateCity(event) {
           </div>
           <div class="current-time">${newTimezone.format("h:mm")} <small>${newTimezone.format("A")}</small>
         </div>
-        </div>`;
+        </div> <a href="/" id="backButton">Back to all cities</a>`;
   } else {
     resultCity.innerHTML = ogHTML;
     updateTime();
