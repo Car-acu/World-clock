@@ -7,7 +7,7 @@ function updateTime() {
     .format("dddd MMMM Do YYYY");
   melbourneTime.innerHTML = moment()
     .tz("Australia/Melbourne")
-    .format("h:mm [<small>]A[</small>]");
+    .format("h:mm:ss [<small>]A[</small>]");
 
   let radaDate = document.querySelector("#rada-date");
   let radaTime = document.querySelector("#rada-time");
@@ -17,7 +17,7 @@ function updateTime() {
     .format("dddd MMMM Do YYYY");
   radaTime.innerHTML = moment()
     .tz("America/Argentina/Rio_Gallegos")
-    .format("h:mm [<small>]A[</small>]");
+    .format("h:mm:ss [<small>]A[</small>]");
 }
 
 function updateCity(event) {
