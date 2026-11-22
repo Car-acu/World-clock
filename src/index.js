@@ -22,7 +22,6 @@ function updateTime() {
 
 function updateCity(event) {
   let chosenTimezone = event.target.value;
-  let newTimezone = moment().tz(chosenTimezone);
   let cityName;
 
   if (chosenTimezone === "Europe/Madrid") {
@@ -35,11 +34,14 @@ function updateCity(event) {
     cityName = "🇯🇵 Tokyo";
   } else if (chosenTimezone === "Africa/Johannesburg") {
     cityName = "🇿🇦 Cape Town";
+  } else if (chosenTimezone === "current") {
+    chosenTimezone = moment.tz.guess();
+    cityName = "🗺️ My location";
   }
 
-  let chosenCity = document.querySelector("#result-city");
-
-  chosenCity.innerHTML = `<div class="fixed-city">
+  if (chosenTimezone !== "") {
+    let newTimezone = moment().tz(chosenTimezone);
+    resultCity.innerHTML = `<div class="fixed-city">
           <div>
             <h2>${cityName}</h2>
             <div class="current-date">
@@ -47,8 +49,16 @@ function updateCity(event) {
             </div>
           </div>
           <div class="current-time">${newTimezone.format("h:mm")} <small>${newTimezone.format("A")}</small>
+        </div>
         </div>`;
+  } else {
+    resultCity.innerHTML = ogHTML;
+    updateTime();
+  }
 }
+
+let resultCity = document.querySelector("#result-city");
+let ogHTML = resultCity.innerHTML;
 
 updateTime();
 setInterval(updateTime, 1000);
