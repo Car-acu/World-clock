@@ -1,9 +1,23 @@
-.container {
-display: block;
-  background-color: white;
-  padding: 30px;
-  margin: 60px auto;
-  max-width: 700px;
-  border-radius: 20px;
-  box-shadow: rgba(37, 39, 89, 0.08) 0px 8px 8px 0;
+function updateTime() {
+  let melbourneDate = document.querySelector("#melb-date");
+  let melbourneTime = document.querySelector("#melb-time");
+
+  melbourneDate.innerHTML = moment()
+    .tz("Australia/Melbourne")
+    .format("dddd MMMM Do YYYY");
+  melbourneTime.innerHTML = moment()
+    .tz("Australia/Melbourne")
+    .format("h:mm [<small>]A[</small>]");
+
+  let radaDate = document.querySelector("#rada-date");
+  let radaTime = document.querySelector("#rada-time");
+
+  radaDate.innerHTML = moment()
+    .tz("America/Argentina/Rio_Gallegos")
+    .format("dddd MMMM Do YYYY");
+  radaTime.innerHTML = moment()
+    .tz("America/Argentina/Rio_Gallegos")
+    .format("h:mm [<small>]A[</small>]");
 }
+updateTime();
+setInterval(updateTime, 1000);
